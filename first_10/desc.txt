@@ -1,0 +1,50 @@
+10 Problems :
+Problem 1: Two Sum
+Problem description:
+ Find two indices in an array such that the numbers at those indices add up to a given target.
+Rules:
+Only one valid solution exists.
+
+
+The same element cannot be used twice.
+
+
+Steps to solve:
+Create a new sorted list from the original array.
+
+
+Use two numbers:
+
+
+The first starts from the beginning of the list.
+
+
+The second starts from the end of the list.
+
+
+If the sum is greater than the target, move the second number one step left.
+
+
+If the sum is smaller than the target, move the first number one step right.
+
+
+When the sum equals the target, store the two numbers.
+
+
+Use a loop on the original array to find the exact indices of those two numbers.
+
+
+Store the indices in an array and return it.
+
+
+Learned:
+sorted() returns a sorted list without modifying the original list.
+
+
+.copy() creates a copy of a list by value.
+
+
+Take time to think about the solution; coding is the easy part.
+
+
+
