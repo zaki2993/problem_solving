@@ -45,6 +45,60 @@ sorted() returns a sorted list without modifying the original list.
 
 
 Take time to think about the solution; coding is the easy part.
+Problem 2: Palindrome
+Problem description
+A phrase is a palindrome if, after converting all uppercase letters to lowercase and removing all non-alphanumeric characters, it reads the same forward and backward.
+ Alphanumeric characters include letters and numbers.
+Steps to solve
+Method 1:
+Create a new empty list.
 
 
+Iterate through the original string.
+
+
+If a character is alphanumeric, add it to the new list as lowercase.
+
+
+Compare the new list with its reversed version.
+Method 2 (two pointers, no extra list)
+Use two pointers:
+
+
+i starts from the beginning of the string.
+
+
+j starts from the end of the string.
+
+
+While i < j:
+
+
+If s[i] is not alphanumeric, move i forward.
+
+
+If s[j] is not alphanumeric, move j backward.
+
+
+Compare s[i] and s[j] in lowercase.
+
+
+If they are different, return False.
+
+
+Otherwise, move both pointers inward.
+
+
+If the loop finishes, return True.
+
+
+
+Learned
+.isalnum() → checks if a character is alphanumeric.
+
+
+.isalpha() → checks if a character is alphabetic only.
+
+
+Slicing rule: [start : end : step].
 
