@@ -1,104 +1,215 @@
-10 Problems :
 Problem 1: Two Sum
-Problem description:
- Find two indices in an array such that the numbers at those indices add up to a given target.
-Rules:
-Only one valid solution exists.
+Problem Description
 
+Find two indices in an array such that the numbers at those indices add up to a given target.
+
+Rules
+
+Only one valid solution exists.
 
 The same element cannot be used twice.
 
+Steps to Solve
 
-Steps to solve:
 Create a new sorted list from the original array.
 
-
-Use two numbers:
-
-
-The first starts from the beginning of the list.
-
-
-The second starts from the end of the list.
-
-
-If the sum is greater than the target, move the second number one step left.
-
-
-If the sum is smaller than the target, move the first number one step right.
-
-
-When the sum equals the target, store the two numbers.
-
-
-Use a loop on the original array to find the exact indices of those two numbers.
-
-
-Store the indices in an array and return it.
-
-
-Learned:
-sorted() returns a sorted list without modifying the original list.
-
-
-.copy() creates a copy of a list by value.
-
-
-Take time to think about the solution; coding is the easy part.
-Problem 2: Palindrome
-Problem description
-A phrase is a palindrome if, after converting all uppercase letters to lowercase and removing all non-alphanumeric characters, it reads the same forward and backward.
- Alphanumeric characters include letters and numbers.
-Steps to solve
-Method 1:
-Create a new empty list.
-
-
-Iterate through the original string.
-
-
-If a character is alphanumeric, add it to the new list as lowercase.
-
-
-Compare the new list with its reversed version.
-Method 2 (two pointers, no extra list)
 Use two pointers:
 
+First pointer → start of the list
 
-i starts from the beginning of the string.
+Second pointer → end of the list
 
+Compare their sum:
 
-j starts from the end of the string.
+If sum > target → move right pointer left
 
+If sum < target → move left pointer right
+
+If sum == target → store the two numbers
+
+Loop through the original array to find the indices.
+
+Return the indices.
+
+Learned
+
+sorted() → returns a sorted list without modifying original
+
+.copy() → creates a copy by value
+
+Think before coding
+
+Problem 2: Palindrome
+Problem Description
+
+A phrase is a palindrome if, after:
+
+Converting uppercase to lowercase
+
+Removing non-alphanumeric characters
+
+It reads the same forward and backward.
+
+Alphanumeric = letters + numbers
+
+Method 1 — Extra List
+
+Create empty list
+
+Iterate string
+
+Add lowercase character if alphanumeric
+
+Compare list with reversed version
+
+Method 2 — Two Pointers (Optimal)
+
+i = 0, j = len(s) - 1
 
 While i < j:
 
+If s[i] not alphanumeric → i++
 
-If s[i] is not alphanumeric, move i forward.
+If s[j] not alphanumeric → j--
 
+Compare lowercase values
 
-If s[j] is not alphanumeric, move j backward.
+If different → return False
 
+Move both inward
 
-Compare s[i] and s[j] in lowercase.
-
-
-If they are different, return False.
-
-
-Otherwise, move both pointers inward.
-
-
-If the loop finishes, return True.
-
-
+Return True
 
 Learned
-.isalnum() → checks if a character is alphanumeric.
+
+.isalnum() → check alphanumeric
+
+.isalpha() → check letters only
+
+Slice format → [start:end:step]
+
+Problem 3: Contains Duplicate
+Problem Description
+
+Return True if any number appears at least twice.
+Return False if all elements are distinct.
+
+Steps
+
+Create empty set:
+
+s = set()
 
 
-.isalpha() → checks if a character is alphabetic only.
+Iterate through list
+
+For each number:
+
+If in set → return True
+
+Else → add to set
+
+Return False
+
+Learned
+
+if x in s → checks membership
+
+Set lookup is O(1) average
+
+Problem 4: Valid Anagram
+Problem Description
+
+Return True if string t is an anagram of string s.
+
+Steps
+
+Store lengths in variables
+
+If lengths differ → return False
+
+Create two empty dictionaries
+
+Iterate through both strings:
+
+If char not in dict → add with count 1
+
+Else → increase count
+
+Compare dictionaries
+
+If equal → True else False
+
+Learned
+
+if x in dict → checks keys
+
+Dictionary lookup is O(1) average
+
+Problem 5: Reverse a Linked List
+Problem Description
+
+Reverse a singly linked list and return new head.
+
+Step by Step
+
+Create new pointer:
+
+newlist = None
 
 
-Slicing rule: [start : end : step].
+Traverse original list:
 
+while head != None
+
+
+Store current node:
+
+temp = head
+
+
+Move head forward:
+
+head = head.next
+
+
+Break original link:
+
+temp.next = None
+
+
+If new list empty:
+
+newlist = temp
+
+
+Else:
+
+temp.next = newlist
+newlist = temp
+
+
+Return newlist
+
+Linked List in Python
+Node Definition
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+Create Linked List 1 → 2 → 3
+head = ListNode(1)
+head.next = ListNode(2)
+head.next.next = ListNode(3)
+
+Python Assignment — Clear Summary
+Type	Example	What a = b Does	If Modify a, Does b Change?	Why
+int	a = 5	Reference copy	❌ No	Immutable
+float	a = 3.14	Reference copy	❌ No	Immutable
+string	a = "hi"	Reference copy	❌ No	Immutable
+tuple	a = (1,2)	Reference copy	❌ No	Immutable
+list	a = [1,2]	Reference copy	✅ Yes	Mutable
+dict	a = {"x":1}	Reference copy	✅ Yes	Mutable
+set	a = {1,2}	Reference copy	✅ Yes	Mutable
+object	a = Person()	Reference copy	✅ Yes	Mutable
